@@ -1,0 +1,8 @@
+{
+  "name": "ArchProc ESP — Architecture des Systèmes à Processeurs",
+  "description": "Plateforme interactive de maîtrise du cours Architecture des Systèmes à Processeurs (Pr M. L. NDIAYE, ESP Dakar) : théorie à 3 niveaux, simulations 3D, assembleurs 68HC11 & PIC16F887, TP L2GE et quiz.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

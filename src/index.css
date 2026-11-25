@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================================
+   Système de design ArchProc ESP — Clair / Sombre / Mode Daltonien (Okabe-Ito)
+   ============================================================================ */
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Outfit", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --app-font-scale: 1;
+
+  /* Couleurs sémantiques des 3 bus du cours (Mode standard) */
+  --bus-address: #2563eb;       /* Bleu : Bus d'adresses (unidirectionnel) */
+  --bus-address-soft: #eff6ff;
+  --bus-data: #dc2626;          /* Rouge : Bus de données (bidirectionnel) */
+  --bus-data-soft: #fef2f2;
+  --bus-control: #ea580c;       /* Orange : Bus de commande (synchronisation) */
+  --bus-control-soft: #fff7ed;
+  --semantic-ok: #059669;
+  --semantic-ok-soft: #ecfdf5;
+}
+
+.dark {
+  --bus-address: #60a5fa;
+  --bus-address-soft: rgba(37, 99, 235, 0.16);
+  --bus-data: #f87171;
+  --bus-data-soft: rgba(220, 38, 38, 0.16);
+  --bus-control: #fb923c;
+  --bus-control-soft: rgba(234, 88, 12, 0.16);
+  --semantic-ok: #34d399;
+  --semantic-ok-soft: rgba(5, 150, 105, 0.16);
+}
+
+/* Mode daltonien (palette Okabe-Ito haute distinction) */
+html.colorblind {
+  --bus-address: #0072b2;
+  --bus-address-soft: rgba(0, 114, 178, 0.12);
+  --bus-data: #d55e00;
+  --bus-data-soft: rgba(213, 94, 0, 0.12);
+  --bus-control: #e69f00;
+  --bus-control-soft: rgba(230, 159, 0, 0.14);
+  --semantic-ok: #009e73;
+  --semantic-ok-soft: rgba(0, 158, 115, 0.14);
+}
+
+html.colorblind.dark {
+  --bus-address: #56b4e9;
+  --bus-data: #ff7f32;
+  --bus-control: #f0e442;
+  --semantic-ok: #26c69c;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: calc(16px * var(--app-font-scale));
+  scroll-behavior: smooth;
+  letter-spacing: 0;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+code, pre, kbd, .font-mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Respect des préférences d'accessibilité pour le mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.55);
+}
